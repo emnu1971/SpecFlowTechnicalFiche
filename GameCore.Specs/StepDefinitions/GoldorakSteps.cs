@@ -3,6 +3,7 @@ using GameCore.Domain;
 using System;
 using System.Linq;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace GameCore.Specs.StepDefinitions
 {
@@ -47,28 +48,33 @@ namespace GameCore.Specs.StepDefinitions
         public void GivenIHaveTheFollowingAttributes(Table table)
         {
             // get value for first row (PositionOfImpact)
-            var positionOfImpact = table.Rows.First(row => row["attribute"] == "PositionOfImpact")["value"];
+            //var positionOfImpact = table.Rows.First(row => row["attribute"] == "PositionOfImpact")["value"];
 
             // get value for second row (Resistance)
-            var resistance = table.Rows.First(row => row["attribute"] == "Resistance")["value"];
+            //var resistance = table.Rows.First(row => row["attribute"] == "Resistance")["value"];
 
-            try
+            //try
 
-            {
-                _goldorak.PositionOfImpact = (PositionOfImpact)Enum.Parse(typeof(PositionOfImpact), positionOfImpact);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            //{
+            //    _goldorak.PositionOfImpact = (PositionOfImpact)Enum.Parse(typeof(PositionOfImpact), positionOfImpact);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
 
-            int defaultDamageResistance;
+            //int defaultDamageResistance;
 
-            if (Int32.TryParse(resistance, out defaultDamageResistance))
-            {
-                _goldorak.DefaultDamageResistance = defaultDamageResistance;
-            }
-            else throw new InvalidCastException();
+            //if (Int32.TryParse(resistance, out defaultDamageResistance))
+            //{
+            //    _goldorak.DefaultDamageResistance = defaultDamageResistance;
+            //}
+            //else throw new InvalidCastException();
+
+            var attributes = table.CreateInstance<GoldorakAttributes>();
+            _goldorak.PositionOfImpact = attributes.PositionOfImpact;
+            _goldorak.DefaultDamageResistance = attributes.Resistance;
+            
         }
 
 
