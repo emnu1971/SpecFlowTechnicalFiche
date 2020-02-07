@@ -60,3 +60,18 @@ Scenario: UfoState Docked restores all health
 	When I take 40 damage
 	And  Execute a repair health request
 	Then My health should remain 100
+
+Scenario: Total magical power
+	Given I'm a new Goldorak
+	Given I have the following magical items
+	| item          | value | power |
+	| FulguroPoint  | 5     | 100   |
+	| AsteroHache   | 10    | 125   |
+	| RetroLaser    | 15    | 150   |
+	| Pulvonium     | 20    | 175   |
+	| CornoFulgure  | 25    | 200   |
+	| PlaniTron     | 30    | 225   |
+	| ClavicoGyre   | 35    | 250   |
+	| MegaVolts     | 40    | 275   |
+	| MissilesGamma | 45    | 300   |
+	Then My total magical power should be 1800

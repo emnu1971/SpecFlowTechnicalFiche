@@ -47,6 +47,7 @@ namespace GameCore.Specs.StepDefinitions
         [Given(@"I have the following attributes")]
         public void GivenIHaveTheFollowingAttributes(Table table)
         {
+            //V1: Weakly typed
             // get value for first row (PositionOfImpact)
             //var positionOfImpact = table.Rows.First(row => row["attribute"] == "PositionOfImpact")["value"];
 
@@ -63,16 +64,18 @@ namespace GameCore.Specs.StepDefinitions
             //    throw ex;
             //}
 
+            //V2: Strongly Typed Data table
             //int defaultDamageResistance;
-
             //if (Int32.TryParse(resistance, out defaultDamageResistance))
             //{
             //    _goldorak.DefaultDamageResistance = defaultDamageResistance;
             //}
             //else throw new InvalidCastException();
+            //var attributes = table.CreateInstance<GoldorakAttributes>();
 
-            var attributes = table.CreateInstance<GoldorakAttributes>();
-            _goldorak.PositionOfImpact = attributes.PositionOfImpact;
+            //V3: Dynamic attributes
+            dynamic attributes = table.CreateDynamicInstance();
+            _goldorak.PositionOfImpact = (PositionOfImpact)Enum.Parse(typeof(PositionOfImpact),attributes.PositionOfImpact);
             _goldorak.DefaultDamageResistance = attributes.Resistance;
             
         }
