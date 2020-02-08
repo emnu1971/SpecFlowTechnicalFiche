@@ -61,6 +61,7 @@ Scenario: UfoState Docked restores all health
 	And  Execute a repair health request
 	Then My health should remain 100
 
+#multi column step table-data
 Scenario: Total magical power
 	Given I'm a new Goldorak
 	Given I have the following magical items

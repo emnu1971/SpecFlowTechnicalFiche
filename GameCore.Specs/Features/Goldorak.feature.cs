@@ -400,7 +400,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             string[] tagsOfScenario = ((string[])(null));
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total magical power", null, ((string[])(null)));
-#line 64
+#line 65
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -420,7 +420,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 65
+#line 66
  testRunner.Given("I\'m a new Goldorak", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -463,10 +463,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "MissilesGamma",
                             "45",
                             "300"});
-#line 66
+#line 67
  testRunner.Given("I have the following magical items", ((string)(null)), table2, "Given ");
 #line hidden
-#line 77
+#line 78
  testRunner.Then("My total magical power should be 1800", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

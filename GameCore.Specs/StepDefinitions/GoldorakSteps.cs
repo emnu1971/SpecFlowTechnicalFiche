@@ -105,6 +105,33 @@ namespace GameCore.Specs.StepDefinitions
             _goldorak.RepairHealth();
         }
 
+        [Given(@"I have the following magical items")]
+        public void GivenIHaveTheFollowingMagicalItems(Table table)
+        {
+            //V1 : Weakly typed
+            foreach(var row in table.Rows)
+            {
+                var name = row["item"];
+                var value = row["value"];
+                var power = row["power"];
+
+                _goldorak.MagicalItems.Add(new MagicalItem
+                {
+                    Name = name,
+                    Value = int.Parse(value),
+                    Power = int.Parse(power)
+                });
+            }
+        }
+
+
+        [Then(@"My total magical power should be (.*)")]
+        public void ThenMyTotalMagicalPowerShouldBe(int expectedPower)
+        {
+            _goldorak.MagicalPower.Should().Be(expectedPower);
+        }
+
+
 
     }
 }
