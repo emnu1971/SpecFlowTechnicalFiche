@@ -393,6 +393,86 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Total magical power")]
+        [Xunit.TraitAttribute("FeatureTitle", "Goldorak")]
+        [Xunit.TraitAttribute("Description", "Total magical power")]
+        public virtual void TotalMagicalPower()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total magical power", null, ((string[])(null)));
+#line 64
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 65
+ testRunner.Given("I\'m a new Goldorak", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "item",
+                            "value",
+                            "power"});
+                table2.AddRow(new string[] {
+                            "FulguroPoint",
+                            "5",
+                            "100"});
+                table2.AddRow(new string[] {
+                            "AsteroHache",
+                            "10",
+                            "125"});
+                table2.AddRow(new string[] {
+                            "RetroLaser",
+                            "15",
+                            "150"});
+                table2.AddRow(new string[] {
+                            "Pulvonium",
+                            "20",
+                            "175"});
+                table2.AddRow(new string[] {
+                            "CornoFulgure",
+                            "25",
+                            "200"});
+                table2.AddRow(new string[] {
+                            "PlaniTron",
+                            "30",
+                            "225"});
+                table2.AddRow(new string[] {
+                            "ClavicoGyre",
+                            "35",
+                            "250"});
+                table2.AddRow(new string[] {
+                            "MegaVolts",
+                            "40",
+                            "275"});
+                table2.AddRow(new string[] {
+                            "MissilesGamma",
+                            "45",
+                            "300"});
+#line 66
+ testRunner.Given("I have the following magical items", ((string)(null)), table2, "Given ");
+#line hidden
+#line 77
+ testRunner.Then("My total magical power should be 1800", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
