@@ -109,19 +109,36 @@ namespace GameCore.Specs.StepDefinitions
         public void GivenIHaveTheFollowingMagicalItems(Table table)
         {
             //V1 : Weakly typed
-            foreach(var row in table.Rows)
-            {
-                var name = row["item"];
-                var value = row["value"];
-                var power = row["power"];
+            //foreach(var row in table.Rows)
+            //{
+            //    var name = row["item"];
+            //    var value = row["value"];
+            //    var power = row["power"];
 
+            //    _goldorak.MagicalItems.Add(new MagicalItem
+            //    {
+            //        Name = name,
+            //        Value = int.Parse(value),
+            //        Power = int.Parse(power)
+            //    });
+            //}
+
+            //V2 : Strongly typed
+            //var items = table.CreateSet<MagicalItem>();
+            //_goldorak.MagicalItems.AddRange(items);
+
+            //V3 : Dynamic attributes
+            var items = table.CreateDynamicSet();
+            foreach(var magicalItem in items)
+            {
                 _goldorak.MagicalItems.Add(new MagicalItem
                 {
-                    Name = name,
-                    Value = int.Parse(value),
-                    Power = int.Parse(power)
+                    Name = magicalItem.name,
+                    Value = magicalItem.value,
+                    Power = magicalItem.power
                 });
             }
+
         }
 
 

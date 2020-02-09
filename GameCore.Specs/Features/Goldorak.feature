@@ -65,7 +65,7 @@ Scenario: UfoState Docked restores all health
 Scenario: Total magical power
 	Given I'm a new Goldorak
 	Given I have the following magical items
-	| item          | value | power |
+	| name          | value | power |
 	| FulguroPoint  | 5     | 100   |
 	| AsteroHache   | 10    | 125   |
 	| RetroLaser    | 15    | 150   |

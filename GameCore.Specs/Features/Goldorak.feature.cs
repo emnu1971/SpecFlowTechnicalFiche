@@ -424,7 +424,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I\'m a new Goldorak", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "item",
+                            "name",
                             "value",
                             "power"});
                 table2.AddRow(new string[] {
