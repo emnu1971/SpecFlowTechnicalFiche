@@ -148,6 +148,18 @@ namespace GameCore.Specs.StepDefinitions
             _goldorak.MagicalPower.Should().Be(expectedPower);
         }
 
+        [Given(@"I last had maintenance (.* days ago)")]
+        public void GivenILastHadMaintenanceDaysAgo(DateTime lastMaintenanceDate)
+        {
+            _goldorak.LastMaintenanceDate = lastMaintenanceDate;
+        }
+
+        [When(@"I request as restore health")]
+        public void WhenIRequestAsRestoreHealth()
+        {
+            _goldorak.ReadHealthScroll();
+        }
+
 
 
     }

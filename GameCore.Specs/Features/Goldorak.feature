@@ -76,3 +76,11 @@ Scenario: Total magical power
 	| MegaVolts     | 40    | 275   |
 	| MissilesGamma | 45    | 300   |
 	Then My total magical power should be 1800
+
+#custom data conversion
+Scenario: Requesting a restore health when not maintained properly has no effect
+	Given I'm a new Goldorak
+	Given I last had maintenance 3 days ago
+	When I take 40 damage
+	And I request as restore health
+	Then My health should remain 60
