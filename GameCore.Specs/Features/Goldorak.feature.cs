@@ -519,6 +519,61 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Teammates are worth value")]
+        [Xunit.TraitAttribute("FeatureTitle", "Goldorak")]
+        [Xunit.TraitAttribute("Description", "Teammates are worth value")]
+        public virtual void TeammatesAreWorthValue()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Teammates are worth value", null, ((string[])(null)));
+#line 89
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 90
+ testRunner.Given("I\'m a new Goldorak", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "value"});
+                table3.AddRow(new string[] {
+                            "ovterre",
+                            "10"});
+                table3.AddRow(new string[] {
+                            "venusiac",
+                            "20"});
+                table3.AddRow(new string[] {
+                            "phosoirac",
+                            "30"});
+                table3.AddRow(new string[] {
+                            "aquarak",
+                            "40"});
+#line 91
+ testRunner.Given("I have the following team mates", ((string)(null)), table3, "Given ");
+#line hidden
+#line 97
+ testRunner.Then("my team mates should be worth 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

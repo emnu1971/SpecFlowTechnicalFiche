@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using GameCore.Domain;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -160,6 +161,17 @@ namespace GameCore.Specs.StepDefinitions
             _goldorak.ReadHealthScroll();
         }
 
+        [Given(@"I have the following team mates")]
+        public void GivenIHaveTheFollowingTeamMates(IEnumerable<TeamMate> teamMates)
+        {
+            _goldorak.TeamMates.AddRange(teamMates);
+        }
+
+        [Then(@"my team mates should be worth (.*)")]
+        public void ThenMyTeamMatesShouldBeWorth(int value)
+        {
+            _goldorak.TeamMatesValue.Should().Be(value);
+        }
 
 
     }

@@ -84,3 +84,14 @@ Scenario: Requesting a restore health when not maintained properly has no effect
 	When I take 40 damage
 	And I request as restore health
 	Then My health should remain 60
+
+#automatic applying custom transformations
+Scenario: Teammates are worth value
+	Given I'm a new Goldorak
+	Given I have the following team mates
+	| name      | value |
+	| ovterre   | 10    |
+	| venusiac  | 20    |
+	| phosoirac | 30    |
+	| aquarak   | 40    |
+	Then my team mates should be worth 100

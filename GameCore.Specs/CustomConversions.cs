@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GameCore.Domain;
+using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace GameCore.Specs
 {
@@ -16,5 +19,14 @@ namespace GameCore.Specs
         {
             return DateTime.Now.Subtract(TimeSpan.FromDays(daysAgo));
         }
+
+        [StepArgumentTransformation]
+        public IEnumerable<TeamMate> TeamMatesTransformation(Table table)
+        {
+            var teamMates = table.CreateSet<TeamMate>();
+
+            return teamMates;
+        }
+
     }
 }
