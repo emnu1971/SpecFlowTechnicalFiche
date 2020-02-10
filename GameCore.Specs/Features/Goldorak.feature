@@ -95,3 +95,12 @@ Scenario: Teammates are worth value
 	| phosoirac | 30    |
 	| aquarak   | 40    |
 	Then my team mates should be worth 100
+
+#using context injection
+Scenario: Goldorak does not lose magical power when docked
+	Given I'm a new Goldorak
+	And I'm Docked to my base station
+	And I have a magical item MegaVolts with a power of 275
+	When I use a magical item MegaVolts
+	Then The magical item MegaVolts power should not be reduced
+

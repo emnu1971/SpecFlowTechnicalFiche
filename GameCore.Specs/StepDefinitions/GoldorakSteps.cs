@@ -9,9 +9,16 @@ using TechTalk.SpecFlow.Assist;
 namespace GameCore.Specs.StepDefinitions
 {
     [Binding]
-    public class GoldorakSteps
+    public class GoldorakSteps : TechTalk.SpecFlow.Steps
     {
         private Goldorak _goldorak;
+        private readonly GoldorakStepsContext _goldorakStepsContext;
+
+
+        public GoldorakSteps(GoldorakStepsContext goldorakStepsContext)
+        {
+            this._goldorakStepsContext = goldorakStepsContext;
+        }
 
         [Given(@"I'm a new Goldorak")]
         public void GivenIMANewGoldorak()
@@ -173,6 +180,53 @@ namespace GameCore.Specs.StepDefinitions
             _goldorak.TeamMatesValue.Should().Be(value);
         }
 
+        //# passing data : ScenarioContext (not thread safe)
+        //[Given(@"I have a magic item with a power of (.*)")]
+        //public void GivenIHaveAMagicItemWithAPowerOf(int power)
+        //{
+        //    ScenarioContext.Current["power"] = power;
+        //}
+
+        //[Then(@"The magic item power should not be reduced")]
+        //public void ThenTheMagicvItemPowerShouldNotBeReduced()
+        //{
+        //    int expectedPower = (int)ScenarioContext.Current["power"];
+        //}
+
+        [Given(@"I'm Docked to my base station")]
+        public void GivenIMDockedToMyBaseStation()
+        {
+            _goldorak.UfoState = UfoState.Docked;
+        }
+
+        [Given(@"I have a magical item MegaVolts with a power of (.*)")]
+        public void GivenIHaveAMagicalItemMegaVoltsWithAPowerOf(int power)
+        {
+            // create a magical item of megavolts
+            _goldorak.MagicalItems.Add(new MagicalItem
+            {
+                Name = "MegaVolts",
+                Power = power
+            });
+
+            // add starting power to the shared context
+            // so we can use it in other step definitions
+            _goldorakStepsContext.StartingMagicalPower = _goldorak.MagicalItems[0].Power;
+        }
+
+        [When(@"I use a magical item MegaVolts")]
+        public void WhenIUseAMagicalItemMegaVolts()
+        {
+            _goldorak.UseMagicalItem("MegaVolts");
+        }
+
+        [Then(@"The magical item MegaVolts power should not be reduced")]
+        public void ThenTheMagicalItemMegaVoltsPowerShouldNotBeReduced()
+        {
+            int expectedPower = _goldorakStepsContext.StartingMagicalPower;
+
+            _goldorak.MagicalPower.Should().Be(expectedPower);
+        }
 
     }
 }
