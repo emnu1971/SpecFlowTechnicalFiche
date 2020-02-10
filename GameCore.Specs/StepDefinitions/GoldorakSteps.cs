@@ -94,7 +94,17 @@ namespace GameCore.Specs.StepDefinitions
         {
             _goldorak.Hit(damage);
         }
-                
+
+        [When(@"I take (.*) damage")]
+        [Scope(Tag="docked")]
+        public void WhenITakeDamageAsDocked(int damage)
+        {
+            _goldorak.UfoState = UfoState.Docked;
+            _goldorak.Hit(damage);
+            _goldorak.LastMaintenanceDate = DateTime.Now;
+            _goldorak.ReadHealthScroll();
+        }
+
         [Then(@"My health should remain (.*)")]
         public void ThenMyHealthShouldRemain(int expectedHealth)
         {

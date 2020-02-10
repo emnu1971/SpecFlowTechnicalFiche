@@ -54,6 +54,7 @@ Scenario: Head PositionOfImpact gets default 10 damage resistance when hit data 
     When I take 40 damage
 	Then My health should remain 80
 
+
 Scenario: UfoState Docked restores all health
 	Given I'm a new Goldorak
 	Given My Goldorak character ufo state is Docked
@@ -97,6 +98,7 @@ Scenario: Teammates are worth value
 	Then my team mates should be worth 100
 
 #using context injection
+@docked @ignore
 Scenario: Goldorak does not lose magical power when docked
 	Given I'm a new Goldorak
 	And I'm Docked to my base station
