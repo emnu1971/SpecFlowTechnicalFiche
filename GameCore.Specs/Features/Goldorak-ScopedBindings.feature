@@ -3,7 +3,7 @@
 	As a human player
 	I want my goldorak attributes to be correctly created
 
-
+@undocked
 Scenario: Starting health is reduced when hit undocked
 	Given I'm a new Goldorak
 	When I take 40 damage

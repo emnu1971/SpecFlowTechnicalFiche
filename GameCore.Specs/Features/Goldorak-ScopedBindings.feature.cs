@@ -84,10 +84,13 @@ namespace GameCore.Specs.Features
         [Xunit.SkippableFactAttribute(DisplayName="Starting health is reduced when hit undocked")]
         [Xunit.TraitAttribute("FeatureTitle", "Goldorak-Scoped-Bindings")]
         [Xunit.TraitAttribute("Description", "Starting health is reduced when hit undocked")]
+        [Xunit.TraitAttribute("Category", "undocked")]
         public virtual void StartingHealthIsReducedWhenHitUndocked()
         {
-            string[] tagsOfScenario = ((string[])(null));
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit undocked", null, ((string[])(null)));
+            string[] tagsOfScenario = new string[] {
+                    "undocked"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit undocked", null, new string[] {
+                        "undocked"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

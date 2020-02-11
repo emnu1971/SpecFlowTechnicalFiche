@@ -124,6 +124,104 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Two money instances are equal if they contain the same money amount")]
+        [Xunit.TraitAttribute("FeatureTitle", "MoneyTest")]
+        [Xunit.TraitAttribute("Description", "Two money instances are equal if they contain the same money amount")]
+        public virtual void TwoMoneyInstancesAreEqualIfTheyContainTheSameMoneyAmount()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two money instances are equal if they contain the same money amount", null, ((string[])(null)));
+#line 13
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+ testRunner.Given("I have 4 twenty cents and 2 ten cents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 15
+ testRunner.And("my friend has 1 ten cent and 2 twenty cents and 1 fifty cent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
+ testRunner.Then("we both have the same amount of money which is 2.00 euro in total", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Money with negative value makes no sense in our vending machine")]
+        [Xunit.TraitAttribute("FeatureTitle", "MoneyTest")]
+        [Xunit.TraitAttribute("Description", "Money with negative value makes no sense in our vending machine")]
+        public virtual void MoneyWithNegativeValueMakesNoSenseInOurVendingMachine()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Money with negative value makes no sense in our vending machine", null, ((string[])(null)));
+#line 18
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "value"});
+                table1.AddRow(new string[] {
+                            "fivecent",
+                            "1"});
+                table1.AddRow(new string[] {
+                            "tencent",
+                            "1"});
+                table1.AddRow(new string[] {
+                            "twentycent",
+                            "1"});
+                table1.AddRow(new string[] {
+                            "fiftycent",
+                            "1"});
+                table1.AddRow(new string[] {
+                            "oneeuro",
+                            "1"});
+                table1.AddRow(new string[] {
+                            "twoeuro",
+                            "1"});
+#line 19
+ testRunner.Given("I have the following money items", ((string)(null)), table1, "Given ");
+#line hidden
+#line 27
+ testRunner.Then("6 invalid operation exception should be returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
