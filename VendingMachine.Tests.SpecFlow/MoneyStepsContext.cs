@@ -1,4 +1,6 @@
-﻿namespace VendingMachine.Tests.SpecFlow
+﻿using VendingMachine.Domain;
+
+namespace VendingMachine.Tests.SpecFlow
 {
     /// <summary>
     /// Author      : Emmanuel Nuyttens
@@ -8,5 +10,7 @@
     public class MoneyStepsContext
     {
         public int NumberOfInvalidOperationExceptions { get; set; }
+
+        public Money DoubleMoney { get; set; }
     }
 }

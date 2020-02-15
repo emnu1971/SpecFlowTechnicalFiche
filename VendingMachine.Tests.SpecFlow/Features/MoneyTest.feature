@@ -25,3 +25,15 @@ Scenario: Money with negative value makes no sense in our vending machine
 	| oneeuro    | -1    |
 	| twoeuro    | -1    |
 	Then 6 invalid operation exception should be returned
+
+@moneysum
+Scenario: Money amount is calculated correctly
+	Given I have the following money items
+    | name       | value |
+	| fivecent   | 2     |
+	| tencent    | 3     |
+	| twentycent | 1     |
+	| fiftycent  | 5     |
+	| oneeuro    | 4     |
+	| twoeuro    | 2     |
+	Then the sum of the moneys should be 11.10 euro in total

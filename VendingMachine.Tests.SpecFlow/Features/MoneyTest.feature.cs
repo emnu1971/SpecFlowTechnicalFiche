@@ -196,27 +196,88 @@ this.ScenarioInitialize(scenarioInfo);
                             "value"});
                 table1.AddRow(new string[] {
                             "fivecent",
-                            "1"});
+                            "-1"});
                 table1.AddRow(new string[] {
                             "tencent",
-                            "1"});
+                            "-1"});
                 table1.AddRow(new string[] {
                             "twentycent",
-                            "1"});
+                            "-1"});
                 table1.AddRow(new string[] {
                             "fiftycent",
-                            "1"});
+                            "-1"});
                 table1.AddRow(new string[] {
                             "oneeuro",
-                            "1"});
+                            "-1"});
                 table1.AddRow(new string[] {
                             "twoeuro",
-                            "1"});
+                            "-1"});
 #line 19
  testRunner.Given("I have the following money items", ((string)(null)), table1, "Given ");
 #line hidden
 #line 27
  testRunner.Then("6 invalid operation exception should be returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Money amount is calculated correctly")]
+        [Xunit.TraitAttribute("FeatureTitle", "MoneyTest")]
+        [Xunit.TraitAttribute("Description", "Money amount is calculated correctly")]
+        [Xunit.TraitAttribute("Category", "moneysum")]
+        public virtual void MoneyAmountIsCalculatedCorrectly()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "moneysum"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Money amount is calculated correctly", null, new string[] {
+                        "moneysum"});
+#line 30
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "name",
+                            "value"});
+                table2.AddRow(new string[] {
+                            "fivecent",
+                            "2"});
+                table2.AddRow(new string[] {
+                            "tencent",
+                            "3"});
+                table2.AddRow(new string[] {
+                            "twentycent",
+                            "1"});
+                table2.AddRow(new string[] {
+                            "fiftycent",
+                            "5"});
+                table2.AddRow(new string[] {
+                            "oneeuro",
+                            "4"});
+                table2.AddRow(new string[] {
+                            "twoeuro",
+                            "2"});
+#line 31
+ testRunner.Given("I have the following money items", ((string)(null)), table2, "Given ");
+#line hidden
+#line 39
+ testRunner.Then("the sum of the moneys should be 11.10 euro in total", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
